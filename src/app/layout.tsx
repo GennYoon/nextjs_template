@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import initMocks from "@/lib/mocks";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
+    initMocks();
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
