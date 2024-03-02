@@ -26,7 +26,7 @@ const TodoList = () => {
       {data
         ?.sort((a, b) => b.id - a.id)
         .map((item) => (
-          <li key={item.id} className="flex items-center mt-2 gap-2">
+          <li key={item.id} className="flex items-center p-1 gap-2 hover:bg-red-50 transition-all">
             <label tabIndex={0} htmlFor={`check${item.id}`} className="outline-red-400">
               <input
                 id={`check${item.id}`}

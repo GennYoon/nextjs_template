@@ -11,15 +11,14 @@ interface Inputs {
 }
 
 const schema = z.object({
-  title: z.string({ required_error: "제목을 입력해주세요." }),
+  title: z.string({ required_error: "title is required" }),
 });
 
 const TodoForm = () => {
   const queryClient = useQueryClient();
-  const { mutateAsync } = useMutation({
-    mutationFn: addTodoApi,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["todo-list"] }),
-  });
+  const onSuccess = () => queryClient.invalidateQueries({ queryKey: ["todo-list"] });
+
+  const { mutateAsync } = useMutation({ mutationFn: addTodoApi, onSuccess });
   const { reset, register, formState, handleSubmit } = useForm<Inputs>({
     resolver: zodResolver(schema),
     defaultValues: {},
@@ -36,7 +35,7 @@ const TodoForm = () => {
         type="text"
         className="w-96 h-14 px-4 text-lg border border-red-500 text-red-500 font-semibold placeholder-red-300 outline-red-400 rounded-lg"
         {...register("title", { required: true })}
-        placeholder="할일을 적어주세요."
+        placeholder="Enter you todo"
       />
       {formState.errors.title && <p>{formState.errors.title.message}</p>}
     </form>
