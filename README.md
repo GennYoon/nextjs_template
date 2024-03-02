@@ -1,13 +1,23 @@
-# NextJS 14 + App router + MSW Example
+# NextJS 14 Example
 
-Install MSW & whatwg-fetch
+> 시스템 시작시에 기본 Template로
+
+### Features
+
+- NextJS 14 (App router)
+- MSW
+- Jest
+- ReactQuery
+
+### Installation
 
 ```bash
-npm install --save-dev msw@latest whatwg-fetch
+git clone https://github.com/GennYoon/example_next14_msw.git
 ```
 
-Install Jest & Testing-Library
+### Usage
 
 ```bash
-npm install --save-dev jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+cd example_next14_msw
+npm run dev
 ```
