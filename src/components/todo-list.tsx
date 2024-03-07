@@ -1,7 +1,7 @@
 "use client";
 
 import { Todo } from "@/types/todo";
-import { deleteTodoApi, fetchTodosApi, updateTodoApi } from "@/lib/mocks/apis/todo.api";
+import { deleteTodoApi, fetchTodosApi, updateTodoApi } from "@/lib/apis/todo.api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const TodoList = () => {

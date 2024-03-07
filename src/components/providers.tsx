@@ -7,6 +7,7 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 
 const Providers = ({ children }: React.PropsWithChildren) => {
   const [client] = React.useState(new QueryClient());
+
   return (
     <QueryClientProvider client={client}>
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
