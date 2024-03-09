@@ -1,6 +1,6 @@
 import { HttpResponse, http } from "msw";
-import { todos } from "../data";
 import { getListId } from "@/lib/utils";
+import { todos } from "@/lib/mocks/data";
 
 interface CreateTodoReq {
   title: string;

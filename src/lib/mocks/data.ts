@@ -1,11 +1,20 @@
 import { Todo } from "@/types/todo";
 
-export const adminsData = new Map([
-  [1, { id: 1, name: "관리자", email: "admin@example.com", phone: "01011112222", password: "qwer1234!" }],
-]);
-
-export const customersData = new Map([
-  [1, { id: 1, name: "사용자", email: "user@example.com", phone: "01022223333", password: "qwer1234!" }],
+export const customersData = new Map<number, Customer>([
+  [
+    1,
+    {
+      id: 1,
+      name: "사용자",
+      email: "user@example.com",
+      phone: "01022223333",
+      password: "qwer1234!",
+      lastConnectedAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      deletedAt: null,
+    },
+  ],
 ]);
 
 export const phoneVerifyData = new Map<string, string>();

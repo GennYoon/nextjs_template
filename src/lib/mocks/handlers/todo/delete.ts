@@ -1,5 +1,5 @@
 import { HttpResponse, http } from "msw";
-import { todos } from "../data";
+import { todos } from "@/lib/mocks/data";
 
 interface DeleteTodoParams {
   id: string;

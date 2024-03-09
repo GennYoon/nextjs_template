@@ -3,7 +3,7 @@ const initMocks = async () => {
 
   if (isServer) {
     const { server } = await import("./server");
-    server.listen();
+    server.listen({ onUnhandledRequest: "bypass" });
   }
 };
 

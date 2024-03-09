@@ -1,5 +1,5 @@
 import { HttpResponse, http } from "msw";
-import { phoneVerifyData } from "../data";
+import { phoneVerifyData } from "@/lib/mocks/data";
 
 interface VerifyCodeReq {
   phone: string;
