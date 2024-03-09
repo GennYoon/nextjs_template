@@ -16,10 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-    initMocks();
-  }
-
+  if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") initMocks();
   return (
     <html lang="en">
       <body className={inter.className}>

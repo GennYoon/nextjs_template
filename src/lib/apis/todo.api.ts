@@ -1,40 +1,26 @@
-import { Todo } from "@/types/todo";
 import { instanceAxios } from "./instance";
 
-export async function fetchTodosApi() {
-  try {
-    const { data } = await instanceAxios.get<Todo[]>("/todos");
-    return data;
-  } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-    return [];
-  }
-}
+export const findTodoApi = async () => {
+  const { data } = await instanceAxios.get<Todo[]>("/todo");
+  return data;
+};
 
-export async function addTodoApi(todo: { title: string }) {
-  try {
-    const { data } = await instanceAxios.post<Todo>("/todo", todo);
-    return data;
-  } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-  }
-}
+export const fundOneTodoApi = async (id: number) => {
+  const { data } = await instanceAxios.get<Todo>(`/todo/${id}`);
+  return data;
+};
 
-export async function updateTodoApi(data: { id: string; title?: string; completed?: boolean }) {
-  const { id, ...todo } = data;
-  try {
-    const { data } = await instanceAxios.patch<Todo>(`/todo/${id}`, todo);
-    return data;
-  } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-  }
-}
+export const createTodoApi = async (body: { title: string }) => {
+  const { data } = await instanceAxios.post<Todo>("/todo", body);
+  return data;
+};
 
-export async function deleteTodoApi(id: string) {
-  try {
-    const { data } = await instanceAxios.delete(`/todo/${id}`);
-    return data;
-  } catch (error) {
-    if (error instanceof Error) console.log(error.message);
-  }
-}
+export const updateTodoApi = async ({ id, ...body }: { id: string; title?: string; completed?: boolean }) => {
+  const { data } = await instanceAxios.patch<Todo>(`/todo/${id}`, body);
+  return data;
+};
+
+export const deleteTodoApi = async (id: number) => {
+  const { data } = await instanceAxios.delete(`/todo/${id}`);
+  return data;
+};

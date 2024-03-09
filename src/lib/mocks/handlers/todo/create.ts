@@ -1,16 +1,12 @@
 import { HttpResponse, http } from "msw";
-import { getListId } from "@/lib/utils";
+import { getLastId } from "@/lib/utils";
 import { todos } from "@/lib/mocks/data";
 
-interface CreateTodoReq {
-  title: string;
-}
-
-export const createTodo = http.post<{}, CreateTodoReq>(
+export const createTodo = http.post<{}, CreateTodoDto>(
   `${process.env.NEXT_PUBLIC_API_URL}/todo`,
   async ({ request }) => {
     const { title } = await request.json();
-    const id = getListId(todos);
+    const id = getLastId(todos);
     const newTodo = { id, userId: 1, title, completed: false };
 
     todos.set(id, newTodo);

@@ -1,11 +1,7 @@
 import { HttpResponse, http } from "msw";
 import { phoneVerifyData } from "@/lib/mocks/data";
 
-interface RequestCodeReq {
-  phone: string;
-}
-
-export const phoneRequestCode = http.post<{}, RequestCodeReq>(
+export const phoneRequestCode = http.post<{}, RequestCodeDto>(
   `${process.env.REACT_APP_API_URL}/request-code`,
   async ({ request }) => {
     const { phone } = await request.json();

@@ -1,12 +1,7 @@
 import { HttpResponse, http } from "msw";
 import { phoneVerifyData } from "@/lib/mocks/data";
 
-interface VerifyCodeReq {
-  phone: string;
-  code: string;
-}
-
-export const phoneVerifyCode = http.post<{}, VerifyCodeReq>(
+export const phoneVerifyCode = http.post<{}, VerifyCodeDto>(
   `${process.env.NEXT_PUBLIC_API_URL}/verify-code`,
   async ({ request }) => {
     const { phone, code } = await request.json();

@@ -1,11 +1,11 @@
 import { HttpResponse, http } from "msw";
 import { todos } from "@/lib/mocks/data";
 
-interface DeleteTodoParams {
+interface RemoveTodoParams {
   id: string;
 }
 
-export const deleteTodo = http.delete<DeleteTodoParams>(
+export const removeTodo = http.delete<RemoveTodoParams>(
   `${process.env.NEXT_PUBLIC_API_URL}/todo/:id`,
   async ({ params }) => {
     const id = Number(params.id);

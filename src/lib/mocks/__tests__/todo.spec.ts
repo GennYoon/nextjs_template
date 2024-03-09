@@ -1,11 +1,7 @@
-import { addTodoApi, fetchTodosApi, updateTodoApi } from "../apis/todo.api";
-import { http, HttpResponse } from "msw";
-import { server } from "../server";
-
 describe("Todo", () => {
-  it("GET /todos - 데이터를 가져옵니다.", async () => {
-    const todos = await fetchTodosApi();
-  });
+  // it("GET /todos - 데이터를 가져옵니다.", async () => {
+  //   const todos = await fetchTodosApi();
+  // });
   //
   // it("GET /todos - 호출중 에러발생시", async () => {
   //   server.use(

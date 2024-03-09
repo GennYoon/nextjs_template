@@ -1,5 +1,5 @@
-import TodoForm from "@/components/todo-form";
-import TodoList from "@/components/todo-list";
+import TodoForm from "@/components/forms/todo-form";
+import TodoList from "@/components/widgets/todo-list";
 
 export default async function Home() {
   return (

@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { addTodoApi } from "@/lib/apis/todo.api";
+import { createTodoApi } from "@/lib/apis/todo.api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 interface Inputs {
@@ -18,14 +18,14 @@ const TodoForm = () => {
   const queryClient = useQueryClient();
   const onSuccess = () => queryClient.invalidateQueries({ queryKey: ["todo-list"] });
 
-  const { mutateAsync } = useMutation({ mutationFn: addTodoApi, onSuccess });
+  const { mutateAsync: createTodo } = useMutation({ mutationFn: createTodoApi, onSuccess });
   const { reset, register, formState, handleSubmit } = useForm<Inputs>({
     resolver: zodResolver(schema),
     defaultValues: {},
   });
 
   const addTodo: SubmitHandler<Inputs> = async (data) => {
-    await mutateAsync(data);
+    await createTodo(data);
     reset();
   };
 

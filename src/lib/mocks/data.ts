@@ -1,5 +1,3 @@
-import { Todo } from "@/types/todo";
-
 export const customersData = new Map<number, Customer>([
   [
     1,
