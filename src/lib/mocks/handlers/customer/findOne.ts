@@ -5,7 +5,7 @@ interface FindOneCustomerParams {
   id: string;
 }
 
-export const findOneCustomer = http.get<FindOneCustomerParams>(
+export const findOne = http.get<FindOneCustomerParams>(
   `${process.env.NEXT_PUBLIC_API_URL}/customer/:id`,
   async ({ params }) => {
     const id = parseInt(params.id);

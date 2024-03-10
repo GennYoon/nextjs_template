@@ -20,7 +20,7 @@ export const updateTodoApi = async ({ id, ...body }: { id: string; title?: strin
   return data;
 };
 
-export const deleteTodoApi = async (id: number) => {
+export const removeTodoApi = async (id: number) => {
   const { data } = await instanceAxios.delete(`/todo/${id}`);
   return data;
 };

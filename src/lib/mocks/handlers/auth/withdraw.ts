@@ -2,7 +2,7 @@ import { HttpResponse, http } from "msw";
 import { customersData } from "../../data";
 import { verifyAccessToken } from "@/lib/utils";
 
-export const update = http.delete(`${process.env.NEXT_PUBLIC_API_URL}/auth/withrow`, ({ request }) => {
+export const withdraw = http.delete(`${process.env.NEXT_PUBLIC_API_URL}/auth/withrow`, ({ request }) => {
   const token = request.headers.get("Authorization");
   if (!token) {
     return new HttpResponse(null, { status: 401 });

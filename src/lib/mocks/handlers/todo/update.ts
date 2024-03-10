@@ -5,7 +5,7 @@ interface UpdateTodoParams {
   id: string;
 }
 
-export const updateTodo = http.patch<UpdateTodoParams, UpdateTodoDto>(
+export const update = http.patch<UpdateTodoParams, UpdateTodoDto>(
   `${process.env.NEXT_PUBLIC_API_URL}/todo/:id`,
   async ({ request, params }) => {
     const id = Number(params.id);

@@ -1,7 +1,7 @@
-import { createTodo } from "./create";
-import { removeTodo } from "./remove";
-import { findTodo } from "./find";
-import { findOneTodo } from "./findOne";
-import { updateTodo } from "./update";
+import { create } from "./create";
+import { find } from "./find";
+import { findOne } from "./findOne";
+import { update } from "./update";
+import { remove } from "./remove";
 
-export const todoHandlers = [findTodo, findOneTodo, createTodo, updateTodo, removeTodo];
+export const todoHandlers = [create, find, findOne, update, remove];

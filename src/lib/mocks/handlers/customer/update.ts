@@ -5,7 +5,7 @@ interface UpdateCustomerParams {
   id: string;
 }
 
-export const updateCustomer = http.patch<UpdateCustomerParams, UpdateCustomerDto>(
+export const update = http.patch<UpdateCustomerParams, UpdateCustomerDto>(
   `${process.env.NEXT_PUBLIC_API_URL}/customer/:id`,
   async ({ params, request }) => {
     const updateData = await request.json();

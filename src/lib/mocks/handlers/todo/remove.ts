@@ -5,7 +5,7 @@ interface RemoveTodoParams {
   id: string;
 }
 
-export const removeTodo = http.delete<RemoveTodoParams>(
+export const remove = http.delete<RemoveTodoParams>(
   `${process.env.NEXT_PUBLIC_API_URL}/todo/:id`,
   async ({ params }) => {
     const id = Number(params.id);

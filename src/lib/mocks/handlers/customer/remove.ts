@@ -5,7 +5,7 @@ interface RemoveCustomerParams {
   id: string;
 }
 
-export const removeCustomer = http.delete<RemoveCustomerParams>(
+export const remove = http.delete<RemoveCustomerParams>(
   `${process.env.NEXT_PUBLIC_API_URL}/customer/:id`,
   async ({ params }) => {
     const id = parseInt(params.id);

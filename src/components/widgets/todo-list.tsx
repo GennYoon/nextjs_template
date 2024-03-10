@@ -1,13 +1,13 @@
 "use client";
 
-import { deleteTodoApi, findTodoApi, updateTodoApi } from "@/lib/apis/todo.api";
+import { removeTodoApi, findTodoApi, updateTodoApi } from "@/lib/apis/todo.api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const TodoList = () => {
   const queryClient = useQueryClient();
   const onSuccess = () => queryClient.invalidateQueries({ queryKey: ["todo-list"] });
   const { mutate: updateTodo } = useMutation({ mutationFn: updateTodoApi, onSuccess });
-  const { mutate: deleteTodo } = useMutation({ mutationFn: deleteTodoApi, onSuccess });
+  const { mutate: removeTodo } = useMutation({ mutationFn: removeTodoApi, onSuccess });
 
   const { data } = useQuery<Todo[]>({ queryKey: ["todo-list"], queryFn: () => findTodoApi() });
 
@@ -39,7 +39,7 @@ const TodoList = () => {
             </label>
             <button
               className="border border-red-500 h-8 px-3 text-red-500 outline-red-400 text-sm rounded-sm hover:bg-red-500 hover:text-white transition-all"
-              onClick={() => deleteTodo(item.id)}
+              onClick={() => removeTodo(item.id)}
             >
               remove
             </button>

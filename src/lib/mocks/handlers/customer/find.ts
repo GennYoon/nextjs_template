@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 import { customersData } from "../../data";
 
-export const findCustomer = http.get(`${process.env.NEXT_PUBLIC_API_URL}/customer`, async ({ request }) => {
+export const find = http.get(`${process.env.NEXT_PUBLIC_API_URL}/customer`, async ({ request }) => {
   const searchParams = new URLSearchParams(request.url);
   const page = parseInt(searchParams.get("page") || "1");
   const size = parseInt(searchParams.get("size") || "10");
